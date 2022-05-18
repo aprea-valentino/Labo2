@@ -16,7 +16,13 @@
 
 int mayor(const vector<int>& v)
 {
-	return 0;
+	int max = v[0];
+	for (int i; i < v.size(); i++){
+		if (max < v[i]){
+			max = v[i];
+		}
+	}
+	return max;
 }
 
 // Ejercicio 1 
@@ -27,9 +33,11 @@ vector<int> reverso(const vector<int>& v)
 {
 	// Inicializo un vector vacío
 	vector<int> reverso;
-
+	
+	for (int i; i < v.size(); i++){
+		reverso.push_back(v[v.size()-i]);
+	}
 	// COMPLETAR
-
 	return reverso;
 }
 
@@ -39,10 +47,15 @@ vector<int> reverso(const vector<int>& v)
 vector<int> rotar(const vector<int>& v, int k)
 {
 	// Inicializo un vector vacío
-	vector<int> rotado;
-
+	vector<int> rotado(v.size(), 0);
+	for (int i; i < k; i++){
+		rotado[v.size()+1-k]=v[i];
+		k-=1;
+	}
 	// COMPLETAR
-
+	cout<<rotado[1];
+	cout<<rotado[2];
+	cout<<rotado[3];
 	return rotado;
 }
 
