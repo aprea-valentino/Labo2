@@ -48,14 +48,29 @@ vector<int> rotar(const vector<int>& v, int k)
 {
 	// Inicializo un vector vacío
 	vector<int> rotado(v.size(), 0);
-	for (int i; i < k; i++){
-		rotado[v.size()+1-k]=v[i];
-		k-=1;
+	int temp = k;
+	for (int i=0; i < v.size(); i++){
+		if (i < k){
+			rotado[v.size()-temp]=v[i];
+			cout<< v[i]<< endl;
+			temp-=1;
+		}
+		else{
+			
+			rotado[i-k]=v[i];
+		}
 	}
 	// COMPLETAR
-	cout<<rotado[1];
-	cout<<rotado[2];
-	cout<<rotado[3];
+	for (int x=0; x< v.size();x++){
+		cout<<v[x];
+	}
+	cout<<""<<endl;
+
+	for (int x=0; x< rotado.size();x++){
+		cout<<rotado[x];
+	}
+	cout<<""<<endl;
+
 	return rotado;
 }
 
@@ -70,8 +85,23 @@ vector<int> rotar(const vector<int>& v, int k)
 // Dado un vector, dice si esta ordenado crecientemente o decrecientemente
 bool estaOrdenado(const vector<int>& v)
 {
+	int mayor = 0;
+	int menor = 0;
 	// COMPLETAR
-	return true;
+	for(int i = 0; i <= v.size()-1; i++){
+		if (v[i] < v[i+1]){
+			mayor+=1;
+		}
+		else if(v[i] > v[i+1]){
+			menor += 1;
+		}
+	}
+	if ((mayor == v.size()) or (menor == v.size())){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
 // Ejercicio 5
@@ -85,6 +115,16 @@ bool estaOrdenado(const vector<int>& v)
 
 void mostrarVector(const vector<int>& v, ostream& out)
 {
+	out <<"[";
+	for(int i = 0; i< v.size();i++){
+		out << v[i];
+		if(i != v.size()-1){
+			out << ", ";
+		}
+	}
+	out << "]";
+	out<< "\n" ;
+
 	// COMPLETAR
 	return;
 }
@@ -96,7 +136,7 @@ void mostrarVector(const vector<int>& v, ostream& out)
 // Ojo con el constructor de ofstream. 
 // Es importante hacer la conversion del string a char* usando c_str().
 // HINT: Reutilizar la función anterior!
-
+  
 void guardarVector(const vector<int>& v, string nombreArchivo)
 {
 	// Abro un archivo con el nombre dado por parámetros (c_str() convierte 
@@ -107,7 +147,7 @@ void guardarVector(const vector<int>& v, string nombreArchivo)
    		//Escribir en el archivo todo el vector (HINT: Ver función anterior)
    		// COMPLETAR
 
-   		// Cerar archivo	
+   		// Cerrar archivo
    		// COMPLETAR
    }
    return;
