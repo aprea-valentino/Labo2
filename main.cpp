@@ -19,6 +19,9 @@ int main()
     //rever = reverso(maximo);
     //rotar(maximo, 2);
     //cout<<estaOrdenado(maximo);
-    mostrarVector(maximo, cout);
+    //mostrarVector(maximo, cout);
+    //sumaTodo(maximo);
+    //cout << maximo[0] << endl;
+    guardarVector(maximo, "vector.txt");
     return 0;
 }

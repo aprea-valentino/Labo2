@@ -24,6 +24,7 @@ vector<int> reverso(const vector<int>& v);
 vector<int> rotar(const vector<int>& v, int k);
 
 // Ejercicio 3 (*)
+void sumaTodo(vector<int>& v);
 // Dado un vector v, hacer una función que lo modifique sumandole uno a todos sus elementos
 // Determinar la cabecera de la funcion!!
 

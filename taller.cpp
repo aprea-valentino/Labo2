@@ -78,9 +78,14 @@ vector<int> rotar(const vector<int>& v, int k)
 // Dado un vector v, hacer una función que lo modifique sumandole uno a todos 
 // sus elementos. RECORDAR determinar la cabecera de la funcion y definir
 // la misma en  taller.h !!
+void sumaTodo(vector<int>& v)
+{
+	vector<int> suma(v.size(), 0);
 
-// COMPLETAR
-
+	for (int x = 0; x < v.size(); x++){
+		v[x] = v[x]+1;
+	}
+}
 // Ejercicio 4
 // Dado un vector, dice si esta ordenado crecientemente o decrecientemente
 bool estaOrdenado(const vector<int>& v)
@@ -124,9 +129,6 @@ void mostrarVector(const vector<int>& v, ostream& out)
 	}
 	out << "]";
 	out<< "\n" ;
-
-	// COMPLETAR
-	return;
 }
 
 // Ejercicio 6 
@@ -142,13 +144,15 @@ void guardarVector(const vector<int>& v, string nombreArchivo)
 	// Abro un archivo con el nombre dado por parámetros (c_str() convierte 
 	// string a un "string" de C)
    ofstream file(nombreArchivo.c_str()); 
+
    if(file.is_open())
    {
    		//Escribir en el archivo todo el vector (HINT: Ver función anterior)
    		// COMPLETAR
-
+		mostrarVector(v, file);
+		file.close();
    		// Cerrar archivo
-   		// COMPLETAR
+   		// COMPLETAR)
    }
    return;
 }
