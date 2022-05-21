@@ -22,6 +22,7 @@ int main()
     //mostrarVector(maximo, cout);
     //sumaTodo(maximo);
     //cout << maximo[0] << endl;
-    guardarVector(maximo, "vector.txt");
+    //guardarVector(maximo, "vector.txt");
+    //cantidadApariciones("vector.txt", "numero.txt", 10);
     return 0;
 }

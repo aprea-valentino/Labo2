@@ -1,4 +1,5 @@
 #include "taller.h"
+#include <charconv>
 
 // ACLARACION: Todas las funciones devuelven algo del tipo necesario, esto es 
 // para que no explote cuando vayan compilando (y de paso para que no se olviden
@@ -170,10 +171,35 @@ void cantidadApariciones(string nombreArchivo, string nombreArchivoOut,int max)
 {
 	// Abro archivo para lectura
 	ifstream fileIn(nombreArchivo.c_str());
+	string line;
+	vector<int> numeros(10, 0);
+	while (getline(fileIn, line)) {
+        // Lo vamos imprimiendo}
 
+		for (int ch1 = 0; ch1 < max; ch1++){
+			size_t count = 0;
+
+			for (char i : line){
+				std::string tmp = std::to_string(ch1);
+    			char const *ch = tmp.c_str();
+				if (i == *ch){
+					count++;
+				}
+			}
+			numeros[ch1] = numeros[ch1] + count;
+			
+		}
+    }
 	// Abro archivo para escriture
     ofstream fileOut(nombreArchivoOut.c_str());
-
+	for(int i = 0; i< numeros.size();i++){
+		if (numeros[i] != 0){
+			fileOut << i;
+			fileOut << " ";
+			fileOut << numeros[i];
+			fileOut<< "\n";
+		}
+	}
     // COMPLETAR
     
 	return;    
